@@ -1,0 +1,216 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  background: #003049;
+  color: #eae2b7;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-toolbar {
+  width: 60%;
+  height: 80px;
+  grid-template-columns: 80% 20%;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  padding: 5px;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input {
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  color: #003049;
+  background: #eae2b7;
+  height: 35px;
+  width: 100%;
+  border-radius: 2px;
+  outline: none;
+  padding: 5px;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input::-moz-placeholder {
+  letter-spacing: 5px;
+  color: #003049;
+  opacity: 0;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:-ms-input-placeholder {
+  letter-spacing: 5px;
+  color: #003049;
+  opacity: 0;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input::placeholder {
+  letter-spacing: 5px;
+  color: #003049;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:focus::-moz-placeholder {
+  opacity: 1;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:focus:-ms-input-placeholder {
+  opacity: 1;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:focus::placeholder {
+  opacity: 1;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:not(:-moz-placeholder-shown) + .app-toolbar__label {
+  transform: translateY(-280%) translateX(0%);
+  opacity: 1;
+  color: #f77f00;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:not(:-ms-input-placeholder) + .app-toolbar__label {
+  transform: translateY(-280%) translateX(0%);
+  opacity: 1;
+  color: #f77f00;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:not(:placeholder-shown) + .app-toolbar__label,
+.app-toolbar .app-toolbar__text .filled {
+  transform: translateY(-280%) translateX(0%);
+  opacity: 1;
+  color: #f77f00;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__input:focus + .app-toolbar__label,
+.app-toolbar .app-toolbar__text .filled {
+  transform: translateY(-280%) translateX(0%);
+  opacity: 1;
+  color: #f77f00;
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__text .app-toolbar__label {
+  color: #003049;
+  font-weight: bold;
+  position: absolute;
+  font-size: 24px;
+  letter-spacing: 2px;
+  transform: translateY(-130%) translateX(20%);
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__btn-add {
+  border: 0px solid #f77f00;
+  width: 35px;
+  height: 35px;
+  align-self: center;
+  justify-self: center;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__btn-add:hover {
+  border: 3px solid #d62828;
+  transition: all 0.3s ease-in-out;
+}
+.app-toolbar .app-toolbar__btn-add input {
+  color: #f77f00;
+  font-size: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.app-toolbar .app-toolbar__btn-add input:hover {
+  color: #d62828;
+}
+
+.app-quest {
+  width: 60%;
+  height: 80px;
+  grid-template-columns: 80% 20%;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  padding: 5px;
+  display: grid;
+  align-items: center;
+  -webkit-animation: addAnimation 1s ease-in-out;
+          animation: addAnimation 1s ease-in-out;
+}
+.app-quest .app-quest__row {
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  color: #003049;
+  background: #eae2b7;
+  height: auto;
+  border-radius: 2px;
+  outline: none;
+  padding: 5px;
+}
+.app-quest .app-quest__paragraph {
+  white-space: wrap;
+  width: 100%;
+}
+.app-quest .app-toolbar__btn-remove {
+  border: 0px solid #f77f00;
+  width: 35px;
+  height: 35px;
+  align-self: center;
+  justify-self: center;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.app-quest .app-toolbar__btn-remove input {
+  color: #f77f00;
+  font-size: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-5%);
+}
+.app-quest .app-toolbar__btn-remove input:hover {
+  color: #d62828;
+}
+
+.remove {
+  -webkit-animation: removeAnimation 1s ease-in-out;
+          animation: removeAnimation 1s ease-in-out;
+}
+
+@-webkit-keyframes removeAnimation {
+  100% {
+    opacity: 0;
+    margin-left: -200%;
+  }
+}
+
+@keyframes removeAnimation {
+  100% {
+    opacity: 0;
+    margin-left: -200%;
+  }
+}
+@-webkit-keyframes addAnimation {
+  0% {
+    opacity: 0;
+    margin-left: -200%;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+@keyframes addAnimation {
+  0% {
+    opacity: 0;
+    margin-left: -200%;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

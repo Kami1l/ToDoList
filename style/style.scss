@@ -1,0 +1,198 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+$background: #003049;
+$text: #eae2b7;
+$static: #f77f00;
+$active: #d62828;
+
+.app {
+    background: $background;
+    color: $text;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-toolbar {
+    // border: 1px solid red;
+    width: 60%;
+    height: 80px;
+    grid-template-columns: 80% 20%;
+    column-gap: 25px;
+    padding: 5px;
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+
+    .app-toolbar__text {
+        // border: 1px solid red;
+
+        .app-toolbar__input {
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            color: $background;
+            background: $text;
+            height: 35px;
+            width: 100%;
+            border-radius: 2px;
+            outline: none;
+            padding: 5px;
+
+            &::placeholder {
+                letter-spacing: 5px;
+                color: $background;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:focus::placeholder {
+                opacity: 1;
+            }
+
+        }
+
+        .app-toolbar__input:not(:placeholder-shown)+.app-toolbar__label,
+        .filled {
+            transform: translateY(-280%) translateX(0%);
+            opacity: 1;
+            color: $static;
+        }
+
+        .app-toolbar__input:focus+.app-toolbar__label,
+        .filled {
+            transform: translateY(-280%) translateX(0%);
+            opacity: 1;
+            color: $static;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .app-toolbar__label {
+            color: $background;
+            font-weight: bold;
+            position: absolute;
+            font-size: 24px;
+            letter-spacing: 2px;
+            transform: translateY(-130%) translateX(20%);
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .app-toolbar__btn-add {
+        border: 0px solid $static;
+        width: 35px;
+        height: 35px;
+        align-self: center;
+        justify-self: center;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            border: 3px solid $active;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input {
+            color: $static;
+            font-size: 48px;
+
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                color: $active;
+            }
+        }
+    }
+}
+
+.app-quest {
+    // border: 1px solid #000;
+    width: 60%;
+    height: 80px;
+    grid-template-columns: 80% 20%;
+    column-gap: 25px;
+    padding: 5px;
+    display: grid;
+    align-items: center;
+    animation: addAnimation 1s ease-in-out;
+
+    .app-quest__row {
+        font-size: 24px;
+        font-weight: bold;
+        border: none;
+        color: $background;
+        background: $text;
+        height: auto;
+        border-radius: 2px;
+        outline: none;
+        padding: 5px;
+    }
+
+    .app-quest__paragraph {
+        white-space: wrap;
+        width: 100%;
+    }
+
+    .app-toolbar__btn-remove {
+        border: 0px solid $static;
+        width: 35px;
+        height: 35px;
+        align-self: center;
+        justify-self: center;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+
+        input {
+            color: $static;
+            font-size: 48px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transform: translateY(-5%);
+
+            &:hover {
+                color: $active;
+            }
+        }
+    }
+}
+
+.remove {
+    animation: removeAnimation 1s ease-in-out;
+}
+
+@keyframes removeAnimation {
+    0% {}
+
+    100% {
+        opacity: 0;
+        margin-left: -200%;
+    }
+
+}
+
+@keyframes addAnimation {
+    0% {
+        opacity: 0;
+        margin-left: -200%;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}
